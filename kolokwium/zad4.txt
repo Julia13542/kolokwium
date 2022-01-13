@@ -1,0 +1,28 @@
+function walidujCudzysłowy(napis) {
+    let stos = []
+    for(let znak of napis)
+        if(znak == `"`)
+            if(stos[stos.length-1] == "podwojny")
+                stos.pop()
+            else
+                stos.push("podwojny")
+        else if(znak == `'`)
+            if(stos[stos.length-1] == "pojedynczy")
+                stos.pop()
+            else
+                stos.push("pojedynczy")
+        else if(znak == `|`)
+            if(stos[stos.length-1] == "wartość absolutna")
+                stos.pop()
+            else
+                stos.push("wartosc absolutna")
+    if(stos[stos.length-1] == undefined){
+            console.log('Wszystkie nawiasy zamkniete');
+            return
+    } 
+    else if(stos[stos.length-1] != undefined) {
+        
+        console.log('Nie wszystkie nawiasy zamkniete');
+        return 
+    }
+}

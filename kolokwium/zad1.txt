@@ -1,0 +1,19 @@
+class Lista {
+    constructor() {
+        this.początek = null
+        this.koniec = null
+        this.długość = 0
+    }
+    dodajNaKońcu(dane) {
+        let nowy = {
+            dane: dane,
+            następnik: null
+        }
+        if(this.koniec == null)
+            this.początek = nowy
+        else
+            this.koniec.następnik = nowy
+        this.koniec = nowy
+        this.długość += 1
+    }
+}
